@@ -1,0 +1,46 @@
+{
+  "title": "ClickHouse Production Cluster & Query Engine Metrics",
+  "refresh": "5s",
+  "panels": [
+    {
+      "title": "Insert Throughput (rows/sec)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "title": "P99 Query Latency (ms)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      }
+    },
+    {
+      "title": "Active Parts & Compression Ratio",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      }
+    },
+    {
+      "title": "Kafka Consumer Lag by Partition",
+      "type": "gauge",
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      }
+    }
+  ]
+}

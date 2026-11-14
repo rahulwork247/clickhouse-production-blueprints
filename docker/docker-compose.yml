@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  clickhouse-keeper:
+    image: clickhouse/clickhouse-keeper:latest-alpine
+    container_name: ch-keeper
+    volumes:
+      - keeper-data:/var/lib/clickhouse-keeper
+    ports:
+      - "9181:9181"
+
+  clickhouse-node1:
+    image: clickhouse/clickhouse-server:24.3-alpine
+    container_name: ch-node-1
+    depends_on:
+      - clickhouse-keeper
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - ch-node1-data:/var/lib/clickhouse
+
+volumes:
+  keeper-data:
+  ch-node1-data:
